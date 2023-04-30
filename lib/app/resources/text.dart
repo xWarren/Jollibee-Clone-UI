@@ -42,11 +42,43 @@ class TextData {
     style: TextStyles.signInButtonStyle,
   );
   static const Text orText = Text(
-    "OR",
+    "Or",
     style: TextStyles.orStyle,
   );
   static const Text facebookButtonText = Text(
     "Continue with Facebook",
     style: TextStyles.signInButtonStyle,
+  );
+  static const Text stayConnectedText = Text(
+    "Stay Connected",
+    style: TextStyles.stayConnectedStyle,
+  );
+  static const Text stayUptoDateText = Text(
+    "Stay up-to-date",
+    style: TextStyles.stayConnectedStyle,
+  );
+  static const Text exclusiveOffersText = Text(
+    "Don't miss out on exclusive online offers!",
+    style: TextStyles.exclusiveOffersStyle,
+  );
+  static const Text signUpButtonText = Text(
+    "SIGN UP",
+    style: TextStyles.signUpButtonStyle,
+  );
+  static const Text enterEmailText = Text(
+    "Enter your Email",
+    style: TextStyles.signUpButtonStyle,
+  );
+  static const Text usefulLinksText = Text(
+    "Useful Links",
+    style: TextStyles.stayConnectedStyle,
+  );
+  static const Text copyrightText = Text(
+    "Copyright © 2019 Jollibee. All Rights Reserved.",
+    style: TextStyles.exclusiveOffersStyle,
+  );
+  static const Text drawerHeaderText = Text(
+    "Sign In",
+    style: TextStyles.drawerHeaderStyle,
   );
 }

@@ -1,3 +1,4 @@
+import '../resources/drawer.dart';
 import '../resources/screen.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,19 +14,22 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: ColorPalette.backgroundColor,
       appBar: buildAppBar(),
+      drawer: const HeaderDrawer(),
     );
   }
 
   AppBar buildAppBar() {
     return AppBar(
       backgroundColor: ColorPalette.appBarColor,
-      leading: const Icon(Ionicons.menu_outline),
       centerTitle: true,
       title: Image.asset(Assets.homeLogo, scale: 2.0),
       actions: [
         Center(
             child: GestureDetector(
-                onTap: () {}, child: TextData.socialMediaTitle)),
+                onTap: () {
+                  Get.toNamed(Routes.loginScreen);
+                },
+                child: TextData.socialMediaTitle)),
         const SizedBox(width: 10),
         Stack(
           alignment: Alignment.center,

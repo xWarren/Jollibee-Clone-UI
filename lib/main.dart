@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:jolibee_app_clone/app/resources/screen.dart';
 
 import 'app/authenticator/login.dart';

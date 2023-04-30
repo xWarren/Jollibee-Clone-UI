@@ -1,5 +1,7 @@
 import 'package:flutter/gestures.dart';
+import 'package:jolibee_app_clone/app/resources/data.dart';
 
+import '../resources/drawer.dart';
 import '../resources/screen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -12,77 +14,268 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController sendingEmailController = TextEditingController();
 
   bool isVisible = true;
+  bool isExpanded = false;
   int emailLength = 0;
   int passwordLength = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorPalette.backgroundColor,
       appBar: buildAppBar(),
-      body: Column(
+      drawer: const HeaderDrawer(),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 10),
+            _buildSignInText(),
+            const SizedBox(height: 20),
+            Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Form(
+                  child: Column(
+                    children: [
+                      _buildEmail(),
+                      const SizedBox(height: 10),
+                      _buildPassword(),
+                      const SizedBox(height: 10),
+                    ],
+                  ),
+                )),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [_buildCheckBox(), _buildForgotPassword()],
+            ),
+            const SizedBox(height: 10),
+            _buildPrivacy(),
+            const SizedBox(height: 40),
+            _buildSignInButton(context),
+            const SizedBox(height: 10),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Divider(
+                thickness: 2,
+              ),
+            ),
+            const SizedBox(height: 30),
+            _buildRegisterText(),
+            const SizedBox(height: 30),
+            _buildCreateAccountButton(context),
+            const SizedBox(height: 15),
+            _buildOrText(),
+            const SizedBox(height: 15),
+            _buildFacebookButton(context),
+            _buildSecondContent()
+          ],
+        ),
+      ),
+    );
+  }
+
+  Row _buildOrText() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: const [TextData.orText],
+    );
+  }
+
+  Padding _buildFacebookButton(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: 50,
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorPalette.facebookButtonColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30))),
+                onPressed: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Ionicons.logo_facebook),
+                    SizedBox(width: 10),
+                    TextData.facebookButtonText,
+                  ],
+                )),
+          ),
+          const SizedBox(height: 15),
+          _buildTermsAndConditions(),
+          const SizedBox(height: 50),
+        ],
+      ),
+    );
+  }
+
+  Container _buildSecondContent() {
+    return Container(
+      height: Get.height / 2,
+      width: Get.width,
+      color: ColorPalette.appBarColor,
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 10),
-          _buildSignInText(),
           const SizedBox(height: 20),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Form(
-                key: GlobalKey(),
-                child: Column(
-                  children: [
-                    _buildEmail(),
-                    const SizedBox(height: 10),
-                    _buildPassword(),
-                    const SizedBox(height: 10),
-                  ],
-                ),
-              )),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [_buildCheckBox(), _buildForgotPassword()],
-          ),
-          const SizedBox(height: 10),
-          _buildPrivacy(),
-          const SizedBox(height: 40),
-          _buildSignInButton(context),
-          const SizedBox(height: 10),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Divider(
-              thickness: 2,
-            ),
+            child: TextData.stayConnectedText,
           ),
-          const SizedBox(height: 30),
-          _buildRegisterText(),
-          const SizedBox(height: 30),
-          _buildCreateAccountButton(context),
-          const SizedBox(height: 15),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [TextData.orText],
-          ),
-          const SizedBox(height: 15),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Column(
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: 50,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: ColorPalette.facebookButtonColor,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30))),
-                      onPressed: () {},
-                      child: TextData.facebookButtonText),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+            child: Row(
+              children: const [
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Ionicons.logo_instagram,
+                    size: 25.0,
+                  ),
+                ),
+                SizedBox(width: 5),
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Ionicons.logo_facebook,
+                    size: 25.0,
+                  ),
+                ),
+                SizedBox(width: 5),
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Ionicons.logo_twitter,
+                    size: 25.0,
+                  ),
                 ),
               ],
             ),
           ),
+          const SizedBox(height: 10),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: TextData.stayUptoDateText,
+          ),
+          const SizedBox(height: 10),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: TextData.exclusiveOffersText,
+          ),
+          const SizedBox(height: 20),
+          Stack(
+            alignment: Alignment.topRight,
+            fit: StackFit.loose,
+            clipBehavior: Clip.hardEdge,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 140),
+                child: TextField(
+                  controller: sendingEmailController,
+                  style: TextStyles.enterEmailStyle,
+                  decoration: const InputDecoration(
+                    label: TextData.enterEmailText,
+                    contentPadding: EdgeInsets.zero,
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                height: 30,
+                right: 57,
+                top: 20,
+                child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: ColorPalette.signUpColor,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                bottomRight: Radius.circular(20)))),
+                    child: TextData.signUpButtonText),
+              ),
+            ],
+          ),
+          const SizedBox(height: 30),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: TextData.usefulLinksText,
+          ),
+          const SizedBox(height: 20),
+          SizedBox(
+            height: 50,
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: listviewmenu.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Row(children: [
+                  TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      elevation: 0,
+                    ),
+                    child: Text(
+                      listviewmenu[index].titles,
+                      style: TextStyles.signUpButtonStyle,
+                    ),
+                  )
+                ]);
+              },
+            ),
+          ),
+          const SizedBox(height: 20),
+          const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Center(child: TextData.copyrightText)),
+        ],
+      ),
+    );
+  }
+
+  Padding _buildTermsAndConditions() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      child: Row(
+        children: [
+          Expanded(
+              child: RichText(
+            textAlign: TextAlign.center,
+            text: TextSpan(
+              text: 'By registering/signing in, you agree to Jollibee’s',
+              style: TextStyles.checkBoxStyle,
+              children: <TextSpan>[
+                TextSpan(
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      Get.toNamed(Routes.homeScreen);
+                    },
+                  text: ' Privacy Policy',
+                  style: TextStyles.privacyStyle,
+                ),
+                const TextSpan(text: ' and'),
+                TextSpan(
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      Get.toNamed(Routes.homeScreen);
+                    },
+                  text: ' Terms And Conditions',
+                  style: TextStyles.privacyStyle,
+                ),
+              ],
+            ),
+          )),
         ],
       ),
     );
@@ -290,7 +483,6 @@ class _LoginPageState extends State<LoginPage> {
   AppBar buildAppBar() {
     return AppBar(
       backgroundColor: ColorPalette.appBarColor,
-      leading: const Icon(Ionicons.menu_outline),
       centerTitle: true,
       title: Image.asset(Assets.homeLogo, scale: 2.0),
       actions: [

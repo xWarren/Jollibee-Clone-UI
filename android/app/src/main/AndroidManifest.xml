@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jolibee_app_clone">
    <application
-        android:label="jolibee_app_clone"
+        android:label="Jollibee"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
