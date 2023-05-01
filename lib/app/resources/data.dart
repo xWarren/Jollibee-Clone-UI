@@ -37,4 +37,5 @@ List<MenuList> menulist = [
   MenuList(routes: Routes.homeScreen, titles: 'Fries & Sides'),
   MenuList(routes: Routes.homeScreen, titles: 'Desserts'),
   MenuList(routes: Routes.homeScreen, titles: 'Beverages'),
+  MenuList(routes: Routes.homeScreen, titles: 'Jolly Kiddie Meal'),
 ];

@@ -117,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Container _buildSecondContent() {
     return Container(
-      height: Get.height / 2,
+      height: Get.height / 1.9,
       width: Get.width,
       color: ColorPalette.appBarColor,
       child: Column(
@@ -175,7 +175,7 @@ class _LoginPageState extends State<LoginPage> {
             clipBehavior: Clip.hardEdge,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 10, right: 140),
+                padding: const EdgeInsets.only(left: 10, right: 120),
                 child: TextField(
                   controller: sendingEmailController,
                   style: TextStyles.enterEmailStyle,
@@ -193,7 +193,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Positioned(
                 height: 30,
-                right: 57,
+                right: 48,
                 top: 20,
                 child: ElevatedButton(
                     onPressed: () {},

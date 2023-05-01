@@ -18,9 +18,10 @@ class _HeaderDrawerState extends State<HeaderDrawer> {
       child: ListView(
         padding: EdgeInsets.zero,
         clipBehavior: Clip.none,
+        scrollDirection: Axis.vertical,
         children: <Widget>[
           SizedBox(
-            height: Get.height / 9,
+            height: Get.height / 9.3,
             child: DrawerHeader(
               padding: EdgeInsets.zero,
               decoration: const BoxDecoration(
@@ -139,7 +140,7 @@ class _HeaderDrawerState extends State<HeaderDrawer> {
               },
               children: <Widget>[
                 SizedBox(
-                  height: Get.height / 1.0,
+                  height: Get.height / 1.5,
                   child: ListView.builder(
                     shrinkWrap: true,
                     itemCount: menulist.length,
@@ -147,11 +148,17 @@ class _HeaderDrawerState extends State<HeaderDrawer> {
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
                       return ListTile(
-                        title: Text(menulist[index].titles),
-                        onTap: () {
-                          // Do something when item is tapped
-                        },
-                      );
+                          title: Text(menulist[index].titles),
+                          onTap: () {
+                            // Do something when item is tapped
+                          },
+                          trailing: const Padding(
+                            padding: EdgeInsets.only(right: 20),
+                            child: Icon(
+                              Ionicons.chevron_forward_outline,
+                              size: 18.0,
+                            ),
+                          ));
                     },
                   ),
                 )
