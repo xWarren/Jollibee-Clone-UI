@@ -43,4 +43,14 @@ class TextStyles {
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );
+  static const stackViewFullMenuStyle = TextStyle(
+      fontSize: 16,
+      color: ColorPalette.elevatedButtonOutlineColor,
+      fontWeight: FontWeight.w900);
+  static const stackExtraCareStyle = TextStyle(
+      fontSize: 17,
+      color: ColorPalette.elevatedButtonOutlineColor,
+      fontWeight: FontWeight.bold);
+  static const stackMemberSafeStyle =
+      TextStyle(fontSize: 15, color: Colors.black, fontWeight: FontWeight.bold);
 }

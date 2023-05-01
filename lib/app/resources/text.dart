@@ -89,4 +89,16 @@ class TextData {
     "SELECT",
     style: TextStyles.stackNewOrderStyle,
   );
+  static const Text stackViewFullMenuText = Text(
+    "View Full Menu",
+    style: TextStyles.stackViewFullMenuStyle,
+  );
+  static const Text stackExtraCareText = Text(
+    "You Deserve Extra Care!",
+    style: TextStyles.stackExtraCareStyle,
+  );
+  static const Text stackMemberSafeText = Text(
+    "Jollibee is taking steps to keep you and our team members safe.",
+    style: TextStyles.stackMemberSafeStyle,
+  );
 }

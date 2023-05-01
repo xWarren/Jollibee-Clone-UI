@@ -1,3 +1,5 @@
+import 'package:jolibee_app_clone/app/resources/second_content.dart';
+
 import '../resources/drawer.dart';
 import '../resources/screen.dart';
 
@@ -25,9 +27,101 @@ class _HomePageState extends State<HomePage> {
             _buildStackChickenjoy(),
             _buildStackBurgers(),
             _buildStackNewProducts(),
+            const SizedBox(height: 50),
+            _buildStackViewfullMenu(),
+            const SizedBox(height: 20),
+            _buildStackMemberSafe(),
+            const SizedBox(height: 50),
+            const SecondContent()
           ],
         ),
       ),
+    );
+  }
+
+  Padding _buildStackMemberSafe() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: SizedBox(
+        width: Get.width / 1.0,
+        height: Get.height / 10.0,
+        child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: ColorPalette.backgroundColor,
+              shape: const RoundedRectangleBorder(),
+              side: const BorderSide(
+                color: ColorPalette.elevatedButtonOutlineColor,
+                width: 4,
+              ),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Image.asset(
+                    Assets.shieldImage,
+                    scale: 1.5,
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      TextData.stackExtraCareText,
+                      SizedBox(height: 5),
+                      TextData.stackMemberSafeText,
+                    ],
+                  ),
+                )
+              ],
+            )),
+      ),
+    );
+  }
+
+  Stack _buildStackViewfullMenu() {
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      clipBehavior: Clip.none,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: SizedBox(
+            width: Get.width / 1.0,
+            height: Get.height / 10.0,
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: ColorPalette.backgroundColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50)),
+                side: const BorderSide(
+                  color: ColorPalette.elevatedButtonOutlineColor,
+                  width: 4,
+                ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  SizedBox(width: 90),
+                  TextData.stackViewFullMenuText,
+                ],
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 0 / 1.0,
+          left: 100,
+          child: Image.asset(
+            Assets.driverImage,
+            scale: 1.8,
+          ),
+        ),
+      ],
     );
   }
 
