@@ -81,4 +81,12 @@ class TextData {
     "Sign In",
     style: TextStyles.drawerHeaderStyle,
   );
+  static const Text stackNewOrderText = Text(
+    "START NEW ORDER",
+    style: TextStyles.stackNewOrderStyle,
+  );
+  static const Text stackSelectText = Text(
+    "SELECT",
+    style: TextStyles.stackNewOrderStyle,
+  );
 }

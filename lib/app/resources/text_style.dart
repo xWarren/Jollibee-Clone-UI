@@ -38,4 +38,9 @@ class TextStyles {
     color: Colors.white,
     fontWeight: FontWeight.w800,
   );
+  static const stackNewOrderStyle = TextStyle(
+    fontSize: 12,
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+  );
 }

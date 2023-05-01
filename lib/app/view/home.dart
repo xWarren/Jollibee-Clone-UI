@@ -15,6 +15,192 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: ColorPalette.backgroundColor,
       appBar: buildAppBar(),
       drawer: const HeaderDrawer(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            _buildStackBanner(),
+            const SizedBox(height: 50),
+            _buildStackBestSellers(),
+            _buildStackFamilyMeals(),
+            _buildStackChickenjoy(),
+            _buildStackBurgers(),
+            _buildStackNewProducts(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Stack _buildStackNewProducts() {
+    return Stack(
+      alignment: Alignment.centerLeft,
+      clipBehavior: Clip.none,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: Image.asset(
+            Assets.newProductsImage,
+          ),
+        ),
+        Positioned(
+          top: 170 / 1.0,
+          left: 12 / 1.0,
+          child: SizedBox(
+            width: Get.width / 5.0,
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorPalette.buttonColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        side: const BorderSide(color: Colors.white))),
+                child: TextData.stackSelectText),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Stack _buildStackBurgers() {
+    return Stack(
+      alignment: Alignment.centerLeft,
+      clipBehavior: Clip.none,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: Image.asset(
+            Assets.burgersImage,
+          ),
+        ),
+        Positioned(
+          top: 170 / 1.0,
+          left: 12 / 1.0,
+          child: SizedBox(
+            width: Get.width / 5.0,
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorPalette.buttonColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        side: const BorderSide(color: Colors.white))),
+                child: TextData.stackSelectText),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Stack _buildStackChickenjoy() {
+    return Stack(
+      alignment: Alignment.centerLeft,
+      clipBehavior: Clip.none,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: Image.asset(
+            Assets.chickenJoyImage,
+          ),
+        ),
+        Positioned(
+          top: 170 / 1.0,
+          left: 12 / 1.0,
+          child: SizedBox(
+            width: Get.width / 5.0,
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorPalette.buttonColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        side: const BorderSide(color: Colors.white))),
+                child: TextData.stackSelectText),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Stack _buildStackFamilyMeals() {
+    return Stack(
+      alignment: Alignment.centerLeft,
+      clipBehavior: Clip.none,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: Image.asset(
+            Assets.familyMealsImage,
+          ),
+        ),
+        Positioned(
+          top: 170 / 1.0,
+          left: 12 / 1.0,
+          child: SizedBox(
+            width: Get.width / 5.0,
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorPalette.buttonColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        side: const BorderSide(color: Colors.white))),
+                child: TextData.stackSelectText),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Stack _buildStackBestSellers() {
+    return Stack(
+      alignment: Alignment.centerLeft,
+      clipBehavior: Clip.none,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: Image.asset(
+            Assets.bestSellersImage,
+          ),
+        ),
+        Positioned(
+          top: 170 / 1.0,
+          left: 12 / 1.0,
+          child: SizedBox(
+            width: Get.width / 5.0,
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorPalette.buttonColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        side: const BorderSide(color: Colors.white))),
+                child: TextData.stackSelectText),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Stack _buildStackBanner() {
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      clipBehavior: Clip.none,
+      children: [
+        Image.asset(Assets.bannerImage),
+        Positioned(
+          top: 110 / 0.95,
+          child: SizedBox(
+            width: Get.width / 1.5,
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorPalette.signUpColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30))),
+                child: TextData.stackNewOrderText),
+          ),
+        )
+      ],
     );
   }
 
